@@ -73,7 +73,7 @@ def center(event=None):
     bin_btn.place(x=w - 125, y=h - 65, width=120, height=60)
     import_btn.place(x=5, y=h - 65, width=120, height=60)
     export_btn.place(x=130, y=h - 65, width=120, height=60)
-
+    # from main
 
 canvas.bind("<Configure>", center)
 
