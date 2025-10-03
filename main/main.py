@@ -22,35 +22,47 @@ button_frame.pack(fill=X, side=TOP)
 button_frame.pack_propagate(False)
 
 #loadujeme ikony
-img_input=ImageTk.PhotoImage(Image.open("resources/IO/INPUT.png").resize((60, 40)))
-img_output=ImageTk.PhotoImage(Image.open("resources/IO/OUTPUT.png").resize((60, 40)))
-img_not = ImageTk.PhotoImage(Image.open("resources/switches/NOTswitch.png").resize((60, 40)))
-img_and = ImageTk.PhotoImage(Image.open("resources/switches/ANDswitch.png").resize((60, 40)))
-img_nand = ImageTk.PhotoImage(Image.open("resources/switches/NANDswitch.png").resize((60, 40)))
-img_or = ImageTk.PhotoImage(Image.open("resources/switches/ORswitch.png").resize((60, 40)))
-img_nor = ImageTk.PhotoImage(Image.open("resources/switches/NORswitch.png").resize((60, 40)))
-img_xor = ImageTk.PhotoImage(Image.open("resources/switches/XORswitch.png").resize((60, 40)))
-img_xnor = ImageTk.PhotoImage(Image.open("resources/switches/XNORswitch.png").resize((60, 40)))
-img_table = ImageTk.PhotoImage(Image.open("resources/misc/table.png").resize((60, 40)))
-img_settings = ImageTk.PhotoImage(Image.open("resources/misc/settings.png").resize((60, 40)))
-img_import = ImageTk.PhotoImage(Image.open("resources/misc/import.png").resize((40, 40)))
-img_export = ImageTk.PhotoImage(Image.open("resources/misc/export.png").resize((40, 40)))
-img_bin1 = ImageTk.PhotoImage(Image.open("resources/misc/closedbin.png").resize((40, 40)))
-img_bin2 = ImageTk.PhotoImage(Image.open("resources/misc/openbin.png").resize((40, 40)))
+images_data = [
+    ("resources/IO/INPUT.png", (60, 40)),
+    ("resources/IO/OUTPUT.png", (60, 40)),
+    ("resources/switches/NOTswitch.png", (60, 40)),
+    ("resources/switches/ANDswitch.png", (60, 40)),
+    ("resources/switches/NANDswitch.png", (60, 40)),
+    ("resources/switches/ORswitch.png", (60, 40)),
+    ("resources/switches/NORswitch.png", (60, 40)),
+    ("resources/switches/XORswitch.png", (60, 40)),
+    ("resources/switches/XNORswitch.png", (60, 40)),
+    ("resources/misc/table.png", (60, 40)),
+    ("resources/misc/settings.png", (60, 40)),
+    ("resources/misc/import.png", (40, 40)),
+    ("resources/misc/export.png", (40, 40)),
+    ("resources/misc/closedbin.png", (40, 40)),
+    ("resources/misc/openbin.png", (40, 40)),
+]
+
+
+icons = []
+for path, size in images_data:
+    if path:
+        icon = ImageTk.PhotoImage(Image.open(path).resize(size))
+    else:
+        icon = None
+    icons.append(icon)
+
 
 #robime buttony
 buttons = [
-    ("INPUT", img_input),
-    ("OUTPUT", img_output),
-    ("NOT", img_not),
-    ("AND", img_and),
-    ("NAND", img_nand),
-    ("OR", img_or),
-    ("NOR", img_nor),
-    ("XOR", img_xor),
-    ("XNOR", img_xnor),
-    ("TABULKA", img_table),
-    ("NASTAVENIA", img_settings),
+    ("INPUT", icons[0]),
+    ("OUTPUT", icons[1]),
+    ("NOT", icons[2]),
+    ("AND", icons[3]),
+    ("NAND", icons[4]),
+    ("OR", icons[5]),
+    ("NOR", icons[6]),
+    ("XOR", icons[7]),
+    ("XNOR", icons[8]),
+    ("TABULKA", icons[9]),
+    ("NASTAVENIA", icons[10]),
 ]
 
 i = 0
@@ -84,9 +96,9 @@ link_text = canvas.create_text(
 canvas.tag_bind(link_text, "<Button-1>", open_link)
 
 #spodne buttony
-bin_btn1 = Button(window, image=img_bin1, font=("Arial", 16))
-import_btn = Button(window, image=img_import, font=("Arial", 16))
-export_btn = Button(window, image=img_export, font=("Arial", 16))
+bin_btn1 = Button(window, image=icons[11], font=("Arial", 16))
+import_btn = Button(window, image=icons[12], font=("Arial", 16))
+export_btn = Button(window, image=icons[13], font=("Arial", 16))
 
 #aby sa to pekne centrovalo
 def center(event=None):
